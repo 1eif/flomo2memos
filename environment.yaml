@@ -2,10 +2,9 @@ name: base
 channels:
   - defaults
 dependencies:
-  - pip=23.1.2=py311haa95532_0
-  - python=3.11.4=he1021f5_0
+  - pip=23.1.2
+  - python=3.11.4
   - pip:
       - beautifulsoup4==4.12.0
-      - bs4==0.0.1
       - requests==2.28.2
 
