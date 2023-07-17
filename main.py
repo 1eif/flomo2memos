@@ -4,8 +4,6 @@ import os
 import sys
 from memos import memos
 
-from os import path
-
 from bs4 import BeautifulSoup
 
 
