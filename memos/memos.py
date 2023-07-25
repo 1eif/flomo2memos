@@ -128,24 +128,24 @@ class Memos_api:
         # url = self.openapi_url + "resource/blob"
         params = {"openId" : self.openId}
 
-        # if filePath.split(".")[-1] == "png":
-        #     headers = {"Content-Type": "image/png"}
-        # elif filePath.split(".")[-1] == "jpg":
-        #     headers = {"Content-Type": "image/jpeg"}
-        # elif filePath.split(".")[-1] == "jpeg":
-        #     headers = {"Content-Type": "image/jpeg"}
-        # elif filePath.split(".")[-1] == "gif":
-        #     headers = {"Content-Type": "image/gif"}
-        # elif filePath.split(".")[-1] == "mp4":
-        #     headers = {"Content-Type": "video/mp4"}
-        # elif filePath.split(".")[-1] == "mp3":
-        #     headers = {"Content-Type": "audio/mp3"}
-        # else:
-        #     print("unknown file type")
-        #     headers = {"Content-Type": ""}
+        if filePath.split(".")[-1] == "png":
+            content_type = "image/png"
+        elif filePath.split(".")[-1] == "jpg":
+            content_type = "image/jpeg"
+        elif filePath.split(".")[-1] == "jpeg":
+            content_type = "image/jpeg"
+        elif filePath.split(".")[-1] == "gif":
+            content_type = "image/gif"
+        elif filePath.split(".")[-1] == "mp4":
+            content_type = "video/mpeg4"
+        elif filePath.split(".")[-1] == "mp3":
+            content_type = "audio/mp3"
+        else:
+            print("unknown file type")
+            content_type = ""
 
         try:
-            files = {'file': open(filePath, 'rb')}
+            files = {'file': (filePath.split("/")[-1], open(filePath, 'rb'), str(content_type))}
 
             res = requests.post(url, files=files, params=params)
 
